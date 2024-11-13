@@ -53,6 +53,7 @@ public class SecurityConfiguration{
                                 "/templates/View/**",
                                 "/js/**",
                                 "/css/**",
+                                "/images/**",
                                 "/img/**").permitAll()
                         .anyRequest().authenticated()
                 )
