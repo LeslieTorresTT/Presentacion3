@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <title>Lista Promociones</title>
+    <link rel="stylesheet" href="css/login.css">
+	<link rel="icon" type="image/png" href="images/logostore.png">
+
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Nice Select CSS -->
+	<link rel="stylesheet" href="css/niceselect.css">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Flex Slider CSS -->
+	<link rel="stylesheet" href="css/flex-slider.min.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl-carousel.css">
+	<!-- Slicknav -->
+	<link rel="stylesheet" href="css/slicknav.min.css">
+
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<!-- Header -->
+<header class="header shop">
+
+	<!-- End Topbar -->
+	<div class="middle-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-12">
+					<!-- Logo -->
+					<div class="logo">
+						<a href="Index2.html"><img style="width:80px; margin-left:50px;  margin-top: -35px"
+                                                   src="images/logostore.png" alt="logo"></a>
+					</div>
+					<!--/ End Logo -->
+					<!-- Search Form -->
+					<div class="search-top">
+						<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+						<!-- Search Form -->
+						<div class="search-top">
+							<form class="search-form">
+								<input type="text" placeholder="Search here..." name="search">
+								<button value="search" type="submit"><i class="ti-search"></i></button>
+							</form>
+						</div>
+						<!--/ End Search Form -->
+					</div>
+					<!--/ End Search Form -->
+					<div class="mobile-nav"></div>
+				</div>
+				<div class="col-lg-8 col-md-7 col-12">
+					<div class="search-bar-top">
+						<div class="search-bar">
+							<select>
+								<option selected="selected">Categorias</option>
+								<option>Deportivo</option>
+								<option>Estrategia</option>
+								<option>Aventura</option>
+								<option>Musicales</option>
+							</select>
+							<form>
+								<input name="buscar" placeholder="Busca productos aqui....." type="search">
+								<button class="btnn"><i class="ti-search"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Header Inner -->
+	<div class="header-inner">
+		<div class="container">
+			<div class="cat-nav-head">
+				<div class="row">
+					<div class="col-12">
+						<div class="menu-area">
+							<!-- Main Menu -->
+							<nav class="navbar navbar-expand-lg">
+								<div class="navbar-collapse">
+									<div class="nav-inner">
+										<ul class="nav main-menu menu navbar-nav">
+											<li><a href="Admin.html">Home</a></li>
+											<li><a href="ListaRegistro.html">Usuarios Registrados</a></li>
+											<li><a href="ListaPromociones.html">Lista Promociones</a></li>
+											<li><a href="Soporte_General.html">Soporte<i class="ti-angle-down"></i></a>
+												<ul class="dropdown">
+													<li><a href="Soporte_A.html">Problemas técnicos del juego</a></li>
+														<li><a href="Soporte_B.html">Descarga e Instalación</a></li>
+														<li><a href="Soporte_C.html">Politicas e Información General</a></li>
+												</ul>
+										
+											<li><a href="#Contact">Reclamos</a></li>
+											<li class="active"><a href="login.html">Login</a></li>
+										</ul>
+									</div>
+								</div>
+							</nav>
+							<!--/ End Main Menu -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ End Header Inner -->
+</header>
+
+
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<div class="container">
+			<a class="navbar-brand" href="ListaRegistro.html">Control</a>
+			<!--Navbar links-->
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li><a class="nav-link" th:href="@{/personas}">Control de Personas</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container ">
+		<div class="p-4">
+			<div class="row align-items-center">
+				<h1 class="col-lg-6">Lista de Promociones</h1>
+				<div class="col-lg-6 text-center ms-auto ">
+					<a href="ListaPromociones.html" th:href="@{/personas/nuevo}" style="color: white; background-color: #4248c3;"  class="btn btn-primary">Agregar Promoción</a>
+				</div>
+			</div>
+		</div>
+		<table class="table table-streped table-bordered">
+			<thead class="table-dark">
+			<tr>
+				<th>Id Promocion</th>
+				<th>Descripcion</th>
+				<th>Fecha Inicio</th>
+				<th>Fecha Fin</th>
+				<th>Porcentaje de Descueto</th>
+				<th>Opciones</th>
+			</tr>
+			</thead>
+			<tr th:each="persona : ${personas}">
+				<td th:text="${promocion.nombre}">ID Promocion</td>
+				<td th:text="${promocion.descripcion}">Descripcion</td>
+				<td th:text="${promocion.fechaInicio}">Fecha Inicio</td>
+				<td th:text="${promocion.fin}">Fecha Fin</td>
+				<td th:text="${persona.fechaInscripcion}">Porcentaje de Descueto</td>
+
+				<td>
+					<a href="EditarRegistro.html" style="color: white;" th:href="@{/personas/editar/{idPersona}(idPersona=${persona.idPersona})}" class="btn btn-info">Editar</a>
+					<a href="ListaRegistro.html" style="color: white;" th:href="@{/personas/eliminar/{idPersona}(idPersona=${persona.idPersona})}" class="btn btn-danger">Eliminar</a>
+				</td>
+			</tr>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+
+
+	
+	<!-- Start Footer Area -->
+	<footer class="footer">
+		<!-- Footer Top -->
+		<div class="footer-top section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer about">
+							<div class="logo">
+								<a href="Categorias.html"><img src="images/logofoot.png" alt="#"></a>
+							</div>
+							<p class="text">Suscríbete a nuestro boletín: Recibe las últimas noticias, ofertas exclusivas y lanzamientos de videojuegos directamente en tu correo.</p>
+							<p class="call">¿Tienes alguna pregunta? llamanos 24/7<span><a href="tel:78978477">01 78978477</a></span></p>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-2 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer links">
+							<h4>Informacion</h4>
+							<ul>
+								<li><a href="#">Sobre nosotros</a></li>
+								<li><a href="#">Preguntas frecuentes</a></li>
+								<li><a href="#">Terminos y condiciones</a></li>
+								<li><a id="Contact" href="#">Contactanos</a></li>
+								<li><a href="#">Ayuda</a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-2 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer links">
+							<h4>Servicio al Cliente</h4>
+							<ul>
+								<li><a href="#">Metodos de Pago</a></li>
+								<li><a href="#">Devolucion de dinero</a></li>
+								<li><a href="#">Libro de reclamaciones</a></li>
+								<li><a href="#">Politicas de Privacidad</a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer social">
+							<h4>Contacto</h4>
+							<!-- Single Widget -->
+							<div class="contact">
+								<ul>
+									<li></li>
+									<li></li>
+									<li>info@gstore.com</li>
+									<li>789 78477</li>
+								</ul>
+							</div>
+							<!-- End Single Widget -->
+							<ul>
+								<li><a href="#"><i class="ti-facebook"></i></a></li>
+								<li><a href="#"><i class="ti-twitter"></i></a></li>
+								<li><a href="#"><i class="ti-instagram"></i></a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Footer Top -->
+		<div class="copyright">
+			<div class="container">
+				<div class="inner">
+					<div class="row">
+						<div class="col-lg-6 col-12">
+							<div class="left">
+								<p>Copyright © 2024 <a href="#" target="_blank">Game Store</a>  -  Todos los derechos reservados.</p>
+							</div>
+						</div>
+						<div class="col-lg-6 col-12">
+							<div class="right">
+								<img src="images/payments.png" alt="#">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- /End Footer Area -->
+ 
+	<!-- Jquery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/colors.js"></script>
+	<script src="js/slicknav.min.js"></script>
+	<script src="js/owl-carousel.js"></script>
+	<script src="js/magnific-popup.js"></script>
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/finalcountdown.min.js"></script>
+	<script src="js/nicesellect.js"></script>
+	<script src="js/flex-slider.js"></script>
+	<script src="js/scrollup.js"></script>
+	<script src="js/onepage-nav.min.js"></script>
+	<script src="js/easing.js"></script>
+	<script src="js/active.js"></script>
+</html>

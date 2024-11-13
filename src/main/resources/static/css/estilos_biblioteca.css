@@ -1,0 +1,116 @@
+
+
+.container-a {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.sidebar-a {
+    background-color: #212121;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    flex-shrink: 0;
+}
+
+
+.game-list-a {
+    list-style-type: none;
+    padding: 0;
+}
+
+.game-list-a li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.game-list-a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.game-list-a li:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.content-a {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.content h1 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.game-grid-a {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Ajusta el tamaño mínimo del grid */
+    gap: 20px;
+}
+
+.game-item-a {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.game-item-a img {
+    width: 200px; /* Double the previous width */
+    height: 245px; /* Double the previous height */
+    margin-bottom: 10px;
+}
+
+.game-item-a span {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+.game-item-a:hover {
+    transform: scale(1.05);
+}
+
+.total_juegos {
+    user-select: none;
+    margin-top: 8px; /* Espacio superior */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.imagen_juegos {
+    max-height: 100%;
+	width: auto; object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .container-a {
+        flex-direction: column;
+    }
+
+    .sidebar-a {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .game-grid-a {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .game-grid-a {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+

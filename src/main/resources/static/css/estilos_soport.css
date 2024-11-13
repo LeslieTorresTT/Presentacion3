@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.support-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.support-item {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 30%;
+}
+
+.support-item img {
+    max-width: 80px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+.support-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.support-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+.popular-topics {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popular-topics h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.popular-topics ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+}
+
+.popular-topics li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.popular-topics li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.popular-topics li a:hover {
+    text-decoration: underline;
+}
+
+/* Efecto de agrandamiento */
+.support-item img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Media Queries para diseño responsive */
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .support-item {
+        width: 45%;
+        margin-bottom: 30px;
+    }
+
+    .popular-topics ul {
+        columns: 1;
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .support-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .support-item img {
+        max-width: 60px;
+    }
+
+    .support-item h3 {
+        font-size: 16px;
+    }
+
+    .support-item p {
+        font-size: 13px;
+    }
+
+    .popular-topics h3 {
+        font-size: 16px;
+    }
+
+    .popular-topics li {
+        font-size: 13px;
+    }
+}
