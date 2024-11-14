@@ -4,16 +4,33 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Cambiar el color del borde al enfocar el campo de texto */
+    .form-control:focus {
+      border-color: #f32855;
+      box-shadow: 0 0 5px rgba(234, 33, 77, 1);
+    }
+
+    #can,#gua{
+      background-color: #f32855;
+      color:whitesmoke;
+    }
+    #can:hover,#gua:hover{
+      background-color: #d81842;
+    }
+  </style>
 </head>
 <body>
 <!--HEADER-->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Control de Categorias</a>
+    <div class="logo">
+      <a href="Index.html"><img style="width:70px; margin-left:50px;  margin-top: -15px" th:src="@{/images/logofoot.png}" alt="logo"></a>
+    </div>
     <!--Navbar links-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li><a class="nav-link" th:href="@{/categorias}">Control de categorias</a></li>
+        <li><a class="nav-link" th:href="@{/categorias}">  Control de categorias</a></li>
       </ul>
 
     </div>
@@ -21,24 +38,30 @@
 </nav>
 
 <div class="container ">
+  <br>
+  <br>
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card bg-info-subtle">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center"  style="background-color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
       <h1 class="text-center pt-3">Registro de categoría</h1>
+      <br>
       <div class="card-body">
         <form th:action="@{/categorias}" th:object="${categoria}" method="POST">
           <div class="mb-3">
             <label class="form-label ">Nombre de Categoría: </label>
             <input type="text" name="nombreCate" th:field="*{nombreCate}" class="form-control" placeholder="Ingrese el nombre de la categoría" required>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Descripción de Categoría: </label>
             <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Ingrese la descripción" required>
           </div>
 
           <div class="box-footer container text-center">
-            <button class="btn btn-primary">Guardar</button>
-            <a class="btn btn-danger" th:href="@{/categorias}">Cancelar</a>
+            <br>
+            <button class="btn " id="gua">Guardar</button>
+            <a class="btn " id="can" th:href="@{/categorias}">Cancelar</a>
           </div>
+          <br><br>
         </form>
       </div>
     </div>
