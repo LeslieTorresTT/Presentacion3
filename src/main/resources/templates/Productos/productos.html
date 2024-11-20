@@ -67,37 +67,33 @@
             </div>
         </div>
     </div>
-    <table class="table table-streped table-bordered">
-        <thead class="table-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Genero</th>
-            <th class="col-md-5">Descripción</th>
-            <th>Estado</th>
-            <th>Imagen</th>
-            <th>Categoria</th>
-            <th>Promoción</th>
-            <th class="col-md-2">Opciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="producto : ${productos}">
-            <td th:text="${producto.nombreProd}">nombreProd</td>
-            <td th:text="${producto.precio}">precio</td>
-            <td th:text="${producto.genero}">genero</td>
-            <td th:text="${producto.descripcion}">descripcion</td>
-            <td th:text="${producto.estado}">estado</td>
-            <td><img th:src="@{${producto.rutaImagen}}" alt="Imagen del juego" height="50" width="auto"></td>
-            <td th:text="${producto.categoria.nombreCate}">categoria</td>
-            <td th:text="${producto.promocion.nombreProm}">promoción</td>
-            <td>
-                <a th:href="@{/producto/editar/{idProducto}(idProducto=${producto.idProducto})}" id="edi" class="btn ">Editar</a>
-                <a th:href="@{/producto/eliminar/{idProducto}(idProducto=${producto.idProducto})}" id="eli" class="btn ">Eliminar</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" th:each="producto : ${productos}">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img class="card-img-top" th:src="@{${producto.rutaImagen}}" alt="Imagen del juego" height="180" width="auto">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${producto.nombreProd}">Nombre del producto</h5>
+                        <p class="card-text">
+                            <span><strong>Precio:</strong> $<span th:text="${producto.precio}">0.00</span></span><br>
+                            <span><strong>Género:</strong> <span th:text="${producto.genero}">Género</span></span><br>
+                            <span><strong>Descripción:</strong> <span th:text="${producto.descripcion}">Descripción</span></span><br>
+                            <span><strong>Estado:</strong> <span th:text="${producto.estado}">Estado</span></span>
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Categoría:</strong> <span th:text="${producto.categoria.nombreCate}">Categoría</span></li>
+                        <li class="list-group-item"><strong>Promoción:</strong> <span th:text="${producto.promocion.nombreProm}">Promoción</span></li>
+                    </ul>
+                    <div class="card-body">
+                        <a th:href="@{/producto/editar/{idProducto}(idProducto=${producto.idProducto})}" class="card-link btn btn-primary">Editar</a>
+                        <a th:href="@{/producto/eliminar/{idProducto}(idProducto=${producto.idProducto})}" class="card-link btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
